@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include ('../../partials/head') %>
+</head>
+<body>
+<%- include ('../../partials/nav') %>
+<section class="my-5">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Products</h2>
+                <a class="btn btn-info" href="/product/create">Create New Product</a>
+            </div>
+            <div class="card-body">
+                <span style="font-style:italic;">Input *NULL* for null value</span>
+            <br>
+                <form action="/product/<%=productCode%>/after-edit" method="post">
+                    <div class="form-group" style="display: flex;">
+                      <label class="font-weight-bold" style="width: 150px; text-align: center;">Code* : </label>
+                      <input type="text" class="" name="productCode" value="<%=productCode%>" style="flex-grow: 1;" disabled required>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label class="font-weight-bold" style="width: 150px; text-align: center;">Name* : </label>
+                        <input type="text" class="" name="name" placeholder="Red Dinner Gown" style="flex-grow: 1;" required>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label class="font-weight-bold" style="width: 150px; text-align: center;">Category* : </label>
+                        <input type="text" class="" name="category" placeholder="Fashion" style="flex-grow: 1;" required>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label class="font-weight-bold" style="width: 150px; text-align: center;">Brand : </label>
+                        <input type="text" class="" name="brand" placeholder="No Brand" style="flex-grow: 1;">
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label class="font-weight-bold" style="width: 150px; text-align: center;">Type : </label>
+                        <input type="text" class="" name="type" placeholder="Type" style="flex-grow: 1;">
+                    </div>
+                    <div class="form-group" style="height: 100px; display: flex;" >
+                        <label class="font-weight-bold" style="width: 150px; text-align: center;">Description : </label>
+                        <input type="text" class="" name="description" placeholder="" style="height: 100px; flex-grow: 1;" >
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-auto" style="display: block;">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<%- include ('../../partials/footer') %>
+<script>
+$(document).ready(function () {
+    $('#mnuProduct').addClass('active');
+});
+window.onload= () => {
+    if(typeof '<%-message%>' !== "undefined"){
+        if('<%-message%>' !== ""){
+            alert('<%-message%>');
+        }
+    }
+    
+}
+</script>
+</body>
+</html>
